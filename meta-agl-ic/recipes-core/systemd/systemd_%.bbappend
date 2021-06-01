@@ -1,5 +1,12 @@
 PROVIDES_remove = "udev"
-#RRECOMMENDS_${PN}_remove = "udev-hwdb"
+RDEPENDS_${PN}_remove = "(= ${EXTENDPKGV})"
+PACKAGES_remove = "udev udev-hwdb"
+RRECOMMENDS_${PN}_remove = "udev-hwdb"
+RDEPENDS_udev-hwdb = ""
+FILES_udev = ""
+FILES_udev-hwdb = ""
+
+DEPENDS_append = " libudev-zero"
 
 do_install_append(){
 # remove libudev files
@@ -26,13 +33,4 @@ do_install_append(){
 	rm -r ${D}${libexecdir}
 	rm ${D}${datadir}/bash-completion/completions/udevadm
 	rm ${D}${systemd_unitdir}/system/systemd-hwdb-update.service
-}
-
-ALLOW_EMPTY_udev = "1"
-ALLOW_EMPTY_udev-hwdb = "1"
-
-pkg_postinst_udev-hwdb () {
-}
-
-pkg_prerm_udev-hwdb () {
 }

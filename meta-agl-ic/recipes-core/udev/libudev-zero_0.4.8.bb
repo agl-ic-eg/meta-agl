@@ -27,11 +27,15 @@ do_install() {
 	install -m 0644 ${WORKDIR}/udev.pc ${D}${datadir}/pkgconfig/
 }
 
-PACKAGES =+ "libudev1"
+PACKAGES = "libudev1 udev libudev1-dev libudev1-staticdev libudev1-dbg"
 
-FILES_${PN} += "${libexecdir} ${nonarch_base_libdir}/udev ${bindir}/udevadm"
-FILES_${PN}-dev = "${datadir}/pkgconfig/udev.pc \
-                   ${includedir}/libudev.h ${base_libdir}/libudev.so \
-                   ${includedir}/udev.h ${base_libdir}/libudev.la \
-                   ${base_libdir}/libudev.a ${libdir}/pkgconfig/libudev.pc"
-FILES_libudev1 = "${base_libdir}/libudev.so.*"
+FILES_udev         = ""
+FILES_libudev1     = "${base_libdir}/libudev.so.*"
+FILES_libudev1-dbg = "${base_libdir}/.debug/libudev.so.*"
+FILES_libudev1-dev = "${datadir}/pkgconfig/udev.pc \
+                      ${includedir}/libudev.h ${base_libdir}/libudev.so \
+                      ${includedir}/udev.h ${base_libdir}/libudev.la \
+                      ${libdir}/pkgconfig/libudev.pc"
+FILES_libudev1-staticdev = "${base_libdir}/libudev.a"
+
+ALLOW_EMPTY_udev = "1"
