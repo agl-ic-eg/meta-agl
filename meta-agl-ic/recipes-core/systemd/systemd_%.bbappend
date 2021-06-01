@@ -1,4 +1,5 @@
 PROVIDES_remove = "udev"
+#RRECOMMENDS_${PN}_remove = "udev-hwdb"
 
 do_install_append(){
 # remove libudev files
@@ -29,3 +30,9 @@ do_install_append(){
 
 ALLOW_EMPTY_udev = "1"
 ALLOW_EMPTY_udev-hwdb = "1"
+
+pkg_postinst_udev-hwdb () {
+}
+
+pkg_prerm_udev-hwdb () {
+}
