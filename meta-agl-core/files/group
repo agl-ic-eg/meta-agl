@@ -87,6 +87,7 @@ postdrop::954:
 weston::200:
 wayland::201:
 display::202:
+render::202:
 agl-driver::1001:
 agl-passenger::1002:
 applaunchd::1003:
