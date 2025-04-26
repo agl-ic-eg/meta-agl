@@ -1,3 +1,3 @@
 BBLAYERS =+ " \
-   ${METADIR}/meta-agl-devel/meta-agl-drm-lease \
+   ${METADIR}/meta-agl/meta-agl-drm-lease \
 "
